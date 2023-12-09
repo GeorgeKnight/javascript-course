@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<form style="font-size: 25px">
+			<div>Nombre: <span id="nombre" name="nombre"></span></div>
+			<div>Descripcion: <span id="descripcion" name="descripcion"></span></div>
+			<div>Precio: <span name="precio" name="precio"></span></div>
+		</form>
+		<script>
+			const nombre = prompt('Ingrese el nombre del producto');
+
+			if (nombre === null) alert('error en el nombre (null)');
+			else if (nombre.length < 3) alert('error en el nombre (length)');
+			else alert('nombre correcto');
+
+			//Precio
+
+            const precio = prompt("Ingrese el precio del producto");
+
+            if (precio<=0)
+                alert("Ingrese un valor mayor que 0");
+            else if(precio>0)
+             alert("El valor es correcto")
+
+            
+		</script>
+	</body>
+</html>

@@ -1,33 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-	</head>
-	<body>
-		<form style="font-size: 25px">
-			<div>Nombre: <span id="nombre" name="nombre"></span></div>
-			<div>Descripcion: <span id="descripcion" name="descripcion"></span></div>
-			<div>Precio: <span name="precio" name="precio"></span></div>
-		</form>
-		<script>
-			const nombre = prompt('Ingrese el nombre del producto');
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      span {
+        border-bottom: 1px solid black;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        border-top: 1px solid black;
+        width: 250px;
+      }
+    </style>
+  </head>
+  <body>
+    <form style="font-size: 25px">
+      <div>Nombre: <span id="nombre" name="nombre"></span></div>
+      <div>Descripcion: <span id="descripcion" name="descripcion"></span></div>
+      <div>Precio: <span id="precio" name="precio"></span></div>
 
-			if (nombre === null) alert('error en el nombre (null)');
-			else if (nombre.length < 3) alert('error en el nombre (length)');
-			else alert('nombre correcto');
+	  <div>
+		<span id="resumen" name="resumem"></span>
+	  </div>
+    </form>
+    <script>
+      const nombre = prompt("Ingrese el nombre del producto");
 
-			//Precio
+      if (nombre === null) alert("error en el nombre (null)");
+      else if (nombre.length < 3) alert("error en el nombre (length)");
+      else alert("nombre correcto");
 
-            const precio = prompt("Ingrese el precio del producto");
+      //Precio
 
-            if (precio<=0)
-                alert("Ingrese un valor mayor que 0");
-            else if(precio>0)
-             alert("El valor es correcto")
+      const precio = parseFloat(prompt("Ingrese el precio del producto"));
 
-            
-		</script>
-	</body>
+      if (isNaN(precio)) alert("Error en el precio es (NaN)");
+      else if (precio <= 0) alert("Precio incorrecto");
+      else alert("Precio correcto");
+
+      let descripcion = prompt("Ingrese la descripcion del producto");
+      if (descripcion === null) descripcion = "";
+
+	  document.getElementById("nombre").innerHTML=nombre;
+	  document.getElementById("precio").innerHTML=precio;
+	  document.getElementById("descripcion").innerHTML=descripcion;
+
+	  // Mostrar en el Span "resumen" el nombre, precio y descripcion del producto
+	  // Producto {nombre} cuesta {precio} y es {descripcion}
+	  const resumen="Producto" + nombre + "cuesta" + precio + "y es" + descripcion;
+
+	  document.getElementById("resumen").innerHTML=resumen;
+    </script>
+  </body>
 </html>
